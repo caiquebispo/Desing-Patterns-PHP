@@ -5,7 +5,7 @@ namespace CaiqueBispo\Strategy\Descontos;
 use CaiqueBispo\Strategy\Contracts\DescontoInterface;
 use CaiqueBispo\Strategy\Orcamento;
 
-class DescontoAcimade5Itens implements DescontoInterface
+class DescontoAcimaDe5Itens implements DescontoInterface
 {
     public function calcular(Orcamento $orcamento): float|null
     {

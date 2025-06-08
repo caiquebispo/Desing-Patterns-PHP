@@ -11,8 +11,6 @@ abstract class AbstractDesconto
 {
     protected ?array $descontos = [];
     protected ?Orcamento $orcamento = null;
-
-//    abstract function calcular(?Orcamento $orcamento = null): float;
     abstract function withData(?Orcamento $orcamento = null): self;
     abstract function setDescontos(?array $descontos = []): self;
     public function next(?Orcamento $orcamento = null,?DescontoInterface $desconto = null): float|null

@@ -2,7 +2,7 @@
 
 namespace CaiqueBispo\Strategy;
 
-use CaiqueBispo\Strategy\Descontos\{DescontoAcimaDe100Reias,DescontoAcimade5Itens,DescontosBase};
+use CaiqueBispo\Strategy\Descontos\{DescontoAcimaDe100Reias,DescontoAcimaDe5Itens,DescontosBase};
 class CalcularDesconto
 {
     /**
@@ -13,7 +13,7 @@ class CalcularDesconto
         return new DescontosBase()
                     ->withData($orcamento)
                     ->setDescontos([
-                        new DescontoAcimade5Itens(),
+                        new DescontoAcimaDe5Itens(),
                         new DescontoAcimaDe100Reias(),
                     ])
                     ->calcular();

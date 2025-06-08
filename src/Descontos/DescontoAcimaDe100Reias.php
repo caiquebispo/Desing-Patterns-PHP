@@ -10,7 +10,7 @@ class DescontoAcimaDe100Reias implements DescontoInterface
 
     function calcular(?Orcamento $orcamento = null): float|null
     {
-        if(!is_null($orcamento) && $orcamento->value > 100) {
+        if(!is_null($orcamento) && $orcamento->value >= 100) {
             return $orcamento->value * 0.05;
         }
        return null;

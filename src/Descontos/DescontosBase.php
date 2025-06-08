@@ -18,6 +18,8 @@ class DescontosBase extends AbstractDesconto
     }
     public function calcular(): float|null|\Exception
     {
+        $totalDesconto = 0;
+
         if(empty($this->descontos)) {
             throw new \Exception('Nenhum desconto foi definido.');
         }
@@ -30,15 +32,18 @@ class DescontosBase extends AbstractDesconto
 
         foreach ($this->descontos as $key => $desconto)
         {
+            $aux_desconto = 0;
 
            if(is_null($desconto->calcular($this->orcamento))){
 
-               return $this->next($this->orcamento,$this->descontos[$key + 1]);
+               $aux_desconto = $this->next($this->orcamento,$this->descontos[$key + 1] ?? null) ?: 0;
            }
 
-           return $desconto->calcular($this->orcamento);
+            $aux_desconto = $desconto->calcular($this->orcamento)  ?: 0;
+
+            $totalDesconto+= $aux_desconto;
         }
 
-        return 0;
+        return $totalDesconto;
     }
 }
